@@ -19,6 +19,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@types/uuid": "^8.3.4",
     "acorn": "^8.7.0",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",
@@ -93,6 +94,7 @@
     "type-check": "^0.4.0",
     "type-fest": "^0.20.2",
     "uri-js": "^4.4.1",
+    "uuid": "^8.3.2",
     "v8-compile-cache": "^2.3.0",
     "which": "^2.0.2",
     "word-wrap": "^1.2.3",
