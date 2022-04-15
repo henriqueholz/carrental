@@ -1,0 +1,8 @@
+- Start application
+docker-compose up
+
+- Run in background
+docker-compose up -d
+
+- Show execution logs
+docker logs carrenal -f
