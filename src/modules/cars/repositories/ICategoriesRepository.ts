@@ -1,6 +1,4 @@
-import { Category } from "../entities/Category";
-import { CategoriesRepository } from "./implementations/CategoriesRepository";
-// import { CategoriesRepository } from "../infra/typeorm/repositories/CategoriesRepository";
+import { Category } from "../infra/typeorm/entities/Category";
 
 interface ICreateCategoryDTO {
   name: string;
