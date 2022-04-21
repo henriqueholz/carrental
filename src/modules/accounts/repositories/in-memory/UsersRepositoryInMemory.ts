@@ -1,5 +1,6 @@
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { User } from "../../infra/typeorm/entities/User";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
+
 import { IUsersRepository } from "../IUsersRepository";
 
 class UsersRepositoryInMemory implements IUsersRepository {
@@ -26,6 +27,10 @@ class UsersRepositoryInMemory implements IUsersRepository {
 
   async findById(id: string): Promise<User> {
     return this.users.find((user) => user.id === id);
+  }
+
+  updateUser(user: User): Promise<User> {
+    throw new Error("Method not implemented.");
   }
 }
 

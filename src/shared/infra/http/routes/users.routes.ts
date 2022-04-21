@@ -11,7 +11,7 @@ const usersRoutes = Router();
 const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
 
 const upload = multer({
-  dest: "avatar",
+  dest: "./tmp/avatar",
 });
 
 const createUserController = new CreateUserController();
