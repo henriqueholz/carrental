@@ -16,10 +16,12 @@ export class CreateSpecificationsCars1650678212654
           {
             name: "car_id",
             type: "uuid",
+            isPrimary: true,
           },
           {
             name: "specification_id",
             type: "uuid",
+            isPrimary: true,
           },
           {
             name: "created_at",

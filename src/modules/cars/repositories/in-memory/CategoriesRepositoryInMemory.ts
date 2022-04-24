@@ -6,7 +6,7 @@ import {
 } from "../ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
-  categories: Category[];
+  categories: Category[] = [];
 
   async findByName(name: string): Promise<Category> {
     const category = await this.categories.find(

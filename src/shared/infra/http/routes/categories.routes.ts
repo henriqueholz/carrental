@@ -19,8 +19,8 @@ const listCategoriesController = new ListCategoriesController();
 
 categoriesRoutes.post(
   "/",
-  ensureAuthenticated,
-  ensureAdmin,
+  // ensureAuthenticated,
+  // ensureAdmin,
   createCategoryController.handle
 );
 

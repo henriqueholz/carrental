@@ -7,25 +7,26 @@ class CarsRepositoryInMemory implements ICarsRepository {
   cars: Car[] = [];
 
   async create({
-    name,
-    description,
-    daily_rate,
-    license_plate,
-    fine_amount,
     brand,
     category_id,
+    daily_rate,
+    description,
+    fine_amount,
+    name,
+    license_plate,
+    id,
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
     Object.assign(car, {
-      name,
-      description,
-      daily_rate,
-      license_plate,
-      fine_amount,
       brand,
       category_id,
+      daily_rate,
+      description,
+      fine_amount,
+      name,
+      license_plate,
+      id,
     });
-
     this.cars.push(car);
 
     return car;
@@ -56,6 +57,11 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
   async findById(id: string): Promise<Car> {
     return this.cars.find((car) => car.id === id);
+  }
+
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    const findIndex = this.cars.findIndex((car) => car.id === id);
+    this.cars[findIndex].available = available;
   }
 }
 

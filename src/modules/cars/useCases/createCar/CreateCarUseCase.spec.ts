@@ -10,7 +10,6 @@ describe("Create Car", () => {
   beforeEach(() => {
     createCarUseCase = new CreateCarUseCase(carsRepositoryInMemory);
   });
-
   it("Should be able to create a new car", async () => {
     const car = await createCarUseCase.execute({
       name: "Name car",
@@ -59,7 +58,6 @@ describe("Create Car", () => {
       brand: "brand",
       category_id: "Category",
     });
-
     expect(car.available).toBe(true);
   });
 });
