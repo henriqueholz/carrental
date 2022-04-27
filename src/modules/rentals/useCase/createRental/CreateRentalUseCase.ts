@@ -3,8 +3,8 @@ import { inject, injectable } from "tsyringe";
 import { CarsRepository } from "@modules/cars/infra/typeorm/repositories/CarsRepository";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
+import { RentalRepository } from "@modules/rentals/infra/typeorm/repositories/RentalRepository";
 import { IRentalRepository } from "@modules/rentals/interface/IRentalRepository";
-import { RentalRepository } from "@modules/rentals/repositories/RentalRepository";
 import { DayJsDateProvider } from "@shared/container/providers/Date/implementations/DayJsDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
