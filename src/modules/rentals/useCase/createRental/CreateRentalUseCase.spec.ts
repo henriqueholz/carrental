@@ -34,7 +34,7 @@ describe("Create Rental", () => {
       fine_amount: 10,
       brand: "VW",
       category_id: "1",
-      specifications: [],
+      // specifications: [],
     });
 
     const rental = await createRentalUseCase.execute({
@@ -71,7 +71,9 @@ describe("Create Rental", () => {
         car_id: "131313",
         expected_return_date: dayAdd24Hours,
       })
-    ).rejects.toEqual(new AppError("User already has a rental", 400));
+    ).rejects.toEqual(
+      new AppError("There's a rental in progress for user!", 400)
+    );
   });
 
   it("Should not be able to create a new rental if theres another open rental for the same car_id", async () => {

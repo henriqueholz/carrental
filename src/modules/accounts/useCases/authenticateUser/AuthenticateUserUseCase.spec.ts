@@ -35,54 +35,47 @@ describe("Authenticate User", () => {
   });
 
   it("should not be able to authenticate with incorrect password", async () => {
-    await expect(async () => {
-      const user: ICreateUserDTO = {
-        driver_license: "000123",
-        email: "user@test.com",
-        password: "1234",
-        name: "User Test",
-      };
+    const user: ICreateUserDTO = {
+      driver_license: "000123",
+      email: "user@test.com",
+      password: "1234",
+      name: "User Test",
+    };
 
-      await createUserUseCase.execute(user);
+    await createUserUseCase.execute(user);
 
-      await authenticateUseCase.execute({
+    await expect(
+      authenticateUseCase.execute({
         email: user.email,
         password: "1235",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 
   it("should not  be able to authenticate with incorrect email", async () => {
-    await expect(async () => {
-      const user: ICreateUserDTO = {
-        driver_license: "000123",
-        email: "user@test.com",
-        password: "1234",
-        name: "User Test",
-      };
+    const user: ICreateUserDTO = {
+      driver_license: "000123",
+      email: "user@test.com",
+      password: "1234",
+      name: "User Test",
+    };
 
-      await createUserUseCase.execute(user);
+    await createUserUseCase.execute(user);
 
-      await authenticateUseCase.execute({
+    await expect(
+      authenticateUseCase.execute({
         email: "useremailincorrect@user.com",
         password: user.password,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 
   it("should not be able to authenticate an nonexistent user", async () => {
-    await expect(async () => {
-      const user: ICreateUserDTO = {
-        driver_license: "000123",
+    await expect(
+      authenticateUseCase.execute({
         email: "user@test.com",
-        password: "1234",
-        name: "User Test",
-      };
-
-      await authenticateUseCase.execute({
-        email: user.email,
-        password: user.password,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+        password: "123123123",
+      })
+    ).rejects.toEqual(new AppError("Email or password incorrect!"));
   });
 });
