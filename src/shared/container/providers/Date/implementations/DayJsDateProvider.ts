@@ -5,15 +5,15 @@ import { IDateProvider } from "../IDateProvider";
 
 dayjs.extend(utc);
 
-export class DayJsDateProvider implements IDateProvider {
-  compareDates(initialDate: Date, dateToCompare: Date): number {
-    const dateToCompareFormatted = dayjs(dateToCompare).utc().local().format();
-    const initialDateFormatted = dayjs(initialDate).utc().local().format();
+class DayJsDateProvider implements IDateProvider {
+  compareInHours(start_date: Date, end_date: Date): number {
+    const end_date_utc = this.convertToUTC(end_date);
+    const start_date_utc = this.convertToUTC(start_date);
 
-    return dayjs(initialDateFormatted).diff(dateToCompareFormatted, "hours");
+    return dayjs(end_date_utc).diff(start_date_utc, "hours");
   }
 
-  convertToUtc(date: Date): string {
+  convertToUTC(date: Date): string {
     return dayjs(date).utc().local().format();
   }
 
@@ -21,11 +21,11 @@ export class DayJsDateProvider implements IDateProvider {
     return dayjs().toDate();
   }
 
-  compareDays(initialDate: Date, dateToCompare: Date): number {
-    const dateToCompareFormatted = dayjs(dateToCompare).utc().local().format();
-    const initialDateFormatted = dayjs(initialDate).utc().local().format();
+  compareInDays(start_date: Date, end_date: Date): number {
+    const end_date_utc = this.convertToUTC(end_date);
+    const start_date_utc = this.convertToUTC(start_date);
 
-    return dayjs(initialDateFormatted).diff(dateToCompareFormatted, "days");
+    return dayjs(end_date_utc).diff(start_date_utc, "days");
   }
 
   addDays(days: number): Date {
@@ -36,10 +36,9 @@ export class DayJsDateProvider implements IDateProvider {
     return dayjs().add(hours, "hour").toDate();
   }
 
-  compareIfBefore(initialDate: Date, dateToCompare: Date): boolean {
-    const dateToCompareFormatted = dayjs(dateToCompare).utc().local().format();
-    const initialDateFormatted = dayjs(initialDate).utc().local().format();
-
-    return dayjs(initialDateFormatted).isBefore(dateToCompareFormatted);
+  compareIfBefore(start_date: Date, end_date: Date): boolean {
+    return dayjs(start_date).isBefore(end_date);
   }
 }
+
+export { DayJsDateProvider };

@@ -1,6 +1,5 @@
-// import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
+import { ICreateRentalDTO } from "@modules/rentals/dtos/ICreateRentalDTO";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
-import { ICreateRentalDTO } from "@modules/rentals/interface/IRentalRepository";
 
 import { IRentalRepository } from "../IRentalRepository";
 
