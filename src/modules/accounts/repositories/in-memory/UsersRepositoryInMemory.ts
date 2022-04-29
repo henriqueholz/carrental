@@ -32,6 +32,10 @@ class UsersRepositoryInMemory implements IUsersRepository {
   updateUser(user: User): Promise<User> {
     throw new Error("Method not implemented.");
   }
+
+  async filterByEmail(email: string): Promise<User> {
+    return this.users.find((user) => user.email === email);
+  }
 }
 
 export { UsersRepositoryInMemory };

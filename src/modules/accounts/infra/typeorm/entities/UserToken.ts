@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { User } from "./User";
 
 @Entity("users_tokens")
-class UserTokens {
+class UserToken {
   @PrimaryColumn()
   id: string;
 
@@ -36,4 +36,4 @@ class UserTokens {
   }
 }
 
-export { UserTokens };
+export { UserToken };

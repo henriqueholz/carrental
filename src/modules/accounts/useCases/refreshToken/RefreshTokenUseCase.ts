@@ -3,7 +3,7 @@ import { inject, injectable } from "tsyringe";
 
 import auth from "@config/auth";
 import { IUserTokensRepository } from "@modules/accounts/repositories/IUsersTokenRepository";
-import { IDateProvider } from "@shared/container/providers/Date/IDateProvider";
+import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
 interface IPayload {
