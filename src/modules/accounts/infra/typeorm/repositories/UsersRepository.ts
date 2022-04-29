@@ -43,6 +43,10 @@ class UsersRepository implements IUsersRepository {
 
     return user;
   }
+
+  filterByEmail(email: string): Promise<User> {
+    throw new Error("Method not implemented.");
+  }
 }
 
 export { UsersRepository };

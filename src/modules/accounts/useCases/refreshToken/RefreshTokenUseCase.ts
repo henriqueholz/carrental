@@ -2,7 +2,7 @@ import { verify, sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
 import auth from "@config/auth";
-import { IUserTokensRepository } from "@modules/accounts/repositories/IUsersTokenRepository";
+import { IUsersTokenRepository } from "@modules/accounts/repositories/IUsersTokenRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
@@ -20,7 +20,7 @@ interface ITokenResponse {
 class RefreshTokenUseCase {
   constructor(
     @inject("UserTokensRepository")
-    private usersTokensRepository: IUserTokensRepository,
+    private usersTokensRepository: IUsersTokenRepository,
     @inject("DayjsDateProvider")
     private dateProvider: IDateProvider
   ) {}
