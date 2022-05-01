@@ -2,6 +2,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
     "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.1",
     "@types/jsonwebtoken": "^8.5.8",
@@ -54,6 +55,7 @@
     "color-convert": "^2.0.1",
     "color-name": "^1.1.4",
     "concat-map": "^0.0.1",
+    "cors": "^2.8.5",
     "cross-spawn": "^7.0.3",
     "csv-parse": "^5.0.4",
     "dayjs": "^1.11.1",
