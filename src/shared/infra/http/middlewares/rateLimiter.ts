@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { RateLimiterRedis } from "rate-limiter-flexible";
 import redis from "redis";
+import "dotenv/config";
 
 import { AppError } from "@shared/errors/AppError";
 

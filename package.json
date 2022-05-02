@@ -36,6 +36,8 @@
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-decorators": "^7.17.9",
     "@babel/preset-env": "^7.17.10",
+    "@sentry/node": "^6.19.7",
+    "@sentry/tracing": "^6.19.7",
     "@types/csv-parse": "^1.2.2",
     "@types/uuid": "^8.3.4",
     "acorn": "^8.7.0",
